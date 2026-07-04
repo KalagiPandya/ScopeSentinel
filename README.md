@@ -1,71 +1,37 @@
+
 <div align="center">
 
-<h1>
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=46&duration=3500&pause=1200&color=8B5CF6&center=true&vCenter=true&width=900&height=70&lines=🛰️+ScopeSentinel" />
-</h1>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6A11CB,100:9D50BB&height=220&section=header&text=ScopeSentinel&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Requirement%20Guardian%20%26%20GitHub%20Engineering%20Intelligence%20Platform&descAlignY=58&descSize=18" />
 
-<h3>AI Requirement Guardian & GitHub Engineering Intelligence Platform</h3>
+<a href="https://github.com/">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" />
+</a>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=800&color=C084FC&center=true&vCenter=true&width=900&lines=8+Autonomous+AI+Agents+•+LangGraph+Pipelines;Real-time+Requirement+↔+Code+Drift+Detection;FastAPI+•+React+•+Neo4j+•+Qdrant+•+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" />
+<br/><br/>
 
-<br><br>
+<p>
+  <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/license-MIT-9D50BB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/python-3.11-6A11CB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/node-18%2B-9D50BB?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/PRs-welcome-B266FF?style=for-the-badge" />
+</p>
 
-<img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-<img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
-<img src="https://img.shields.io/badge/PRs-Welcome-success?style=for-the-badge"/>
-
-<br>
-
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
-<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
-<img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"/>
-<img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white"/>
-<img src="https://img.shields.io/badge/LangGraph-7C3AED?style=flat-square"/>
-<img src="https://img.shields.io/badge/LangChain-121212?style=flat-square"/>
-<img src="https://img.shields.io/badge/OpenAI-GPT--4o-412991?style=flat-square&logo=openai"/>
-<img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white"/>
-<img src="https://img.shields.io/badge/Neo4j-008CC1?style=flat-square&logo=neo4j&logoColor=white"/>
-<img src="https://img.shields.io/badge/Qdrant-DC244C?style=flat-square"/>
-<img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"/>
-<img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white"/>
-<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
-<img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white"/>
-<img src="https://img.shields.io/badge/JWT-black?style=flat-square&logo=jsonwebtokens"/>
-<img src="https://img.shields.io/badge/Pydantic-E92063?style=flat-square"/>
-<img src="https://img.shields.io/badge/Alembic-4B4B4B?style=flat-square"/>
-<img src="https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway"/>
-<img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel"/>
-<img src="https://img.shields.io/badge/MCP-Claude-purple?style=flat-square"/>
-
-<br><br>
-
-<!-- Replace YOUR_USERNAME with your GitHub username -->
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&hide_border=true"/>
-
-<img height="165" src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=tokyonight&hide_border=true"/>
-
-<br><br>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USERNAME&theme=tokyo-night&hide_border=true"/>
-
----
+<p>
+  <img src="https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi" />
+  <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/LangGraph-6A11CB?style=flat-square" />
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Neo4j-008CC1?style=flat-square&logo=neo4j&logoColor=white" />
+  <img src="https://img.shields.io/badge/Qdrant-DC244C?style=flat-square" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
+</p>
 
 ### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
 
-**AI-Powered Requirement Intelligence • Engineering Impact Analysis • GitHub Compliance Automation**
-
-<br>
-
-[✨ Features](#-features) •
-[🏗 Architecture](#-architecture) •
-[🚀 Quick Start](#-quick-start) •
-[📺 Screens](#-screens-tour) •
-[🔌 API](#-api-overview) •
-[🧰 Tech Stack](#-tech-stack) •
-[🗺 Roadmap](#-roadmap)
+[Features](#-features) • [Architecture](#-architecture) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
 
 </div>
 <br/>
