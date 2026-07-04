@@ -353,11 +353,18 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 ---
 
-div align="center">
+<div align="center">
 
 <img width="100%" src="./assets/footer.svg" alt="ScopeSentinel footer" />
 
+<br/>
+
 **ScopeSentinel** — Stop finding scope creep in the retro. Find it the moment it happens.
 
+<br/>
+
+Made by [Kalagi Pandya](https://github.com/KalagiPandya) · ⭐ Star this repo if it saved you a scope-creep headache
+
+</div>
 </div>
 
