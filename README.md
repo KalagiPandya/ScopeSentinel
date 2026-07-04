@@ -3,6 +3,8 @@
 <img width="100%" src="./assets/header.svg" alt="ScopeSentinel header" />
 
 <br/>
+<br/>
+
 
 <a href="https://github.com/">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" />
