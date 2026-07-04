@@ -1,13 +1,11 @@
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6A11CB,100:9D50BB&height=220&section=header&text=ScopeSentinel&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Requirement%20Guardian%20%26%20GitHub%20Engineering%20Intelligence%20Platform&descAlignY=58&descSize=18" />
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=0:6A11CB,100:9D50BB&height=220&section=header&text=ScopeSentinel&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Requirement%20Guardian%20%26%20GitHub%20Engineering%20Intelligence%20Platform&descAlignY=58&descSize=18" />
 
-<a href="https://github.com/">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" />
-</a>
+<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
 
-<br/><br/>
+<br/>
 
 <p>
   <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
@@ -34,6 +32,8 @@
 [Features](#-features) • [Architecture](#-architecture) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
 
 </div>
+
+
 <br/>
 
 ## 📌 What is ScopeSentinel?
