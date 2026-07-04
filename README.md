@@ -1,8 +1,11 @@
 <div align="center">
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=gradient&customColorList=6,11,20&height=250&section=header&text=ScopeSentinel&fontSize=70&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=AI%20Requirement%20Guardian%20%26%20GitHub%20Engineering%20Intelligence%20Platform&descAlignY=55&descSize=18&descAlign=50" alt="ScopeSentinel header" />
+
+<img width="100%" src="./assets/header.svg" alt="ScopeSentinel header" />
+
 <a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
 
 <br/>
+
 <p>
   <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
   <img src="https://img.shields.io/badge/license-MIT-9D50BB?style=for-the-badge" />
@@ -10,6 +13,7 @@
   <img src="https://img.shields.io/badge/node-18%2B-9D50BB?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/PRs-welcome-B266FF?style=for-the-badge" />
 </p>
+
 <p>
   <img src="https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi" />
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
@@ -21,9 +25,10 @@
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
 </p>
-🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
 
-Features • Architecture • Quick Start • Screens • API • Tech Stack • Roadmap
+### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
+
+[Features](#-features) • [Architecture](#-architecture) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
 
 </div>
 
@@ -336,8 +341,11 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 ---
 
-<div align="center">
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=gradient&customColorList=20,11,6&height=160&section=footer&text=Made%20with%20%F0%9F%9F%A3%20and%20a%20lot%20of%20coffee&fontSize=22&fontColor=ffffff&animation=twinkling&fontAlignY=75" alt="ScopeSentinel footer" />
-ScopeSentinel — Stop finding scope creep in the retro. Find it the moment it happens.
+div align="center">
+
+<img width="100%" src="./assets/footer.svg" alt="ScopeSentinel footer" />
+
+**ScopeSentinel** — Stop finding scope creep in the retro. Find it the moment it happens.
 
 </div>
+
