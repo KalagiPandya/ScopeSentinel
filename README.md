@@ -2,9 +2,13 @@
 
 <img width="100%" src="./assets/header.svg" alt="ScopeSentinel header" />
 
-<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
-
 <br/>
+
+<a href="https://github.com/">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" />
+</a>
+
+<br/><br/>
 
 <p>
   <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
@@ -26,9 +30,13 @@
   <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
 </p>
 
+<br/>
+
 ### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
 
-[Features](#-features) • [Architecture](#-architecture) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
+<br/>
+
+**[Features](#-features)** • **[Architecture](#-architecture)** • **[Quick Start](#-quick-start)** • **[Screens](#-screens-tour)** • **[API](#-api-overview)** • **[Tech Stack](#-tech-stack)** • **[Roadmap](#-roadmap)**
 
 </div>
 
