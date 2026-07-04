@@ -359,7 +359,7 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <br/>
 
-**ScopeSentinel** — Stop finding scope creep in the retro. Find it the moment it happens.
+Built with FastAPI, React, LangGraph, and a healthy distrust of scope creep.
 
 <br/>
 
