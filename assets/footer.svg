@@ -1,38 +1,58 @@
-<svg width="100%" height="140" viewBox="0 0 1200 140" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" height="150" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9D50BB">
-        <animate attributeName="stop-color"
-          values="#9D50BB;#6A11CB;#B266FF;#9D50BB"
-          dur="6s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#6A11CB">
-        <animate attributeName="stop-color"
-          values="#6A11CB;#B266FF;#6A11CB;#9D50BB"
-          dur="6s" repeatCount="indefinite" />
-      </stop>
+    <linearGradient id="spaceBgFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1b5e"/>
+      <stop offset="50%" stop-color="#1a1440"/>
+      <stop offset="100%" stop-color="#0b0d21"/>
     </linearGradient>
+
+    <filter id="nodeGlowF" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
-  <rect width="1200" height="140" fill="url(#bgGradFooter)" />
+  <rect width="1200" height="150" fill="url(#spaceBgFooter)"/>
 
-  <!-- animated wave -->
-  <path fill="#ffffff" opacity="0.1">
-    <animate attributeName="d" dur="5s" repeatCount="indefinite"
-      values="
-        M0,20 C300,45 900,0 1200,25 L1200,0 L0,0 Z;
-        M0,30 C300,5 900,40 1200,10 L1200,0 L0,0 Z;
-        M0,20 C300,45 900,0 1200,25 L1200,0 L0,0 Z" />
-  </path>
+  <!-- faint grid -->
+  <g stroke="#8f6fff" stroke-opacity="0.07">
+    <path d="M0,0 L1200,0 M0,50 L1200,50 M0,100 L1200,100 M0,150 L1200,150"/>
+    <path d="M0,0 L0,150 M150,0 L150,150 M300,0 L300,150 M450,0 L450,150 M600,0 L600,150 M750,0 L750,150 M900,0 L900,150 M1050,0 L1050,150 M1200,0 L1200,150"/>
+  </g>
 
-  <text x="600" y="75" font-family="Fira Code, monospace" font-size="24"
-        font-weight="600" fill="#ffffff" text-anchor="middle">
-    Made with 🟣 and a lot of coffee — ScopeSentinel
-    <animate attributeName="opacity" values="0;1" dur="1.2s" fill="freeze" />
+  <!-- signal line across the whole footer -->
+  <line x1="0" y1="45" x2="1200" y2="45" stroke="#9D50BB" stroke-opacity="0.3" stroke-width="1.2"/>
+
+  <!-- traveling pulse along the line -->
+  <circle cy="45" r="5" fill="#B266FF" filter="url(#nodeGlowF)">
+    <animate attributeName="cx" values="-20;1220" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- static endpoint nodes -->
+  <g fill="#B266FF" filter="url(#nodeGlowF)">
+    <circle cx="60" cy="45" r="4">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1140" cy="45" r="4">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- title -->
+  <text x="600" y="95" font-family="Fira Code, monospace" font-size="22" font-weight="700"
+        fill="#ffffff" text-anchor="middle">
+    ScopeSentinel
+    <animate attributeName="opacity" values="0;1" dur="1.2s" fill="freeze"/>
   </text>
 
-  <text x="600" y="105" font-family="Fira Code, monospace" font-size="14"
-        fill="#f2e9ff" text-anchor="middle" opacity="0.85">
-    Stop finding scope creep in the retro. Find it the moment it happens.
+  <!-- tagline -->
+  <text x="600" y="122" font-family="Fira Code, monospace" font-size="13"
+        fill="#c9b8ff" text-anchor="middle" opacity="0">
+    Built with FastAPI, React, LangGraph &amp; a healthy distrust of scope creep
+    <animate attributeName="opacity" values="0;0;0.9" dur="2s" fill="freeze"/>
   </text>
 </svg>
