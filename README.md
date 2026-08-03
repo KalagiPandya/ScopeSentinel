@@ -1,12 +1,8 @@
 <div align="center">
 
-🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
-
-<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=2500&pause=900&color=9D50BB&center=true&vCenter=true&width=700&height=60&lines=%F0%9F%94%AE+ScopeSentinel" alt="Typing SVG" /></a>
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=6A11CB&height=200&section=header&text=ScopeSentinel&fontSize=55&fontColor=ffffff&animation=twinkling&fontAlignY=40" />
 
 <a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
-
-🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
 
 <br/>
 
@@ -381,10 +377,8 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <div align="center">
 
-🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=6A11CB&height=150&section=footer" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2200&pause=700&color=B266FF&center=true&vCenter=true&width=600&lines=Made+with+%F0%9F%9F%A3+and+a+lot+of+coffee;Thanks+for+stopping+by+%F0%9F%92%9C" alt="Typing SVG" />
-
-🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
+Made with 🟣 and a lot of coffee — **ScopeSentinel**
 
 </div>
