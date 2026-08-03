@@ -6,7 +6,6 @@
     alt="ScopeSentinel"
   />
 
-  <br>
 
   <img
     src="./assets/typing.svg"
@@ -14,7 +13,7 @@
     alt="Real-time Requirement ↔ Code Drift"
   />
 
-  <br><br>
+  <br>
 
 </div>
 <p align="center">
@@ -45,11 +44,14 @@
 </div>
 <br>
 
+
 ## 🔮 Real-time AI Requirement Intelligence
 
 **Stop finding out about scope creep during the retrospective.  
 Detect requirement changes the moment they happen, analyze their impact, verify implementation coverage, and review pull requests automatically using an 8-Agent AI pipeline.**
 <br/>
+
+<br>
 
 ## 📌 What is ScopeSentinel?
 
