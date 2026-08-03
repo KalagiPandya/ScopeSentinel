@@ -1,0 +1,38 @@
+<svg width="100%" height="150" viewBox="0 0 1500 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="footerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B266FF">
+        <animate attributeName="stop-color"
+                 values="#B266FF;#9D50BB;#6A11CB;#9D50BB;#B266FF"
+                 dur="9s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#6A11CB">
+        <animate attributeName="stop-color"
+                 values="#6A11CB;#B266FF;#9D50BB;#B266FF;#6A11CB"
+                 dur="9s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="1500" height="150" fill="url(#footerBg)" />
+
+  <g fill="#ffffff" opacity="0.10">
+    <path d="M0,20 C125,55 250,-15 375,20 C500,55 625,-15 750,20
+             C875,55 1000,-15 1125,20 C1250,55 1375,-15 1500,20 L1500,0 L0,0 Z" />
+    <path d="M1500,20 C1625,55 1750,-15 1875,20 C2000,55 2125,-15 2250,20
+             C2375,55 2500,-15 2625,20 C2750,55 2875,-15 3000,20 L3000,0 L1500,0 Z" />
+    <animateTransform attributeName="transform" type="translate"
+                       values="0,0; -1500,0; 0,0" dur="16s" repeatCount="indefinite" />
+  </g>
+
+  <circle cx="200"  cy="110" r="1.5" fill="#ffffff"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.2s" repeatCount="indefinite" /></circle>
+  <circle cx="600"  cy="120" r="1.7" fill="#ffffff"><animate attributeName="opacity" values="0;1;0" dur="2.6s" begin="0.7s" repeatCount="indefinite" /></circle>
+  <circle cx="1000" cy="105" r="1.4" fill="#ffffff"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="1.1s" repeatCount="indefinite" /></circle>
+  <circle cx="1300" cy="118" r="1.6" fill="#ffffff"><animate attributeName="opacity" values="0;1;0" dur="2.5s" begin="0.4s" repeatCount="indefinite" /></circle>
+
+  <text x="750" y="90" font-family="'Fira Code', 'Courier New', monospace" font-size="18"
+        font-weight="500" fill="#ffffff" fill-opacity="0.85" text-anchor="middle">
+    Made with 🟣 and a lot of coffee — ScopeSentinel
+    <animate attributeName="fill-opacity" values="0.7;0.95;0.7" dur="4s" repeatCount="indefinite" />
+  </text>
+</svg>
