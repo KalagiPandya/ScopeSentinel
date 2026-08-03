@@ -1,8 +1,8 @@
 <div align="center">
 
-<img width="100%" src="./assets/header.svg" alt="ScopeSentinel" />
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=6A11CB&height=200&section=header&text=ScopeSentinel&fontSize=55&fontColor=ffffff&animation=twinkling&fontAlignY=40" />
 
-<img width="780" src="./assets/typing.svg" alt="8 Autonomous AI Agents • LangGraph Pipelines" />
+<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
 
 <br/>
 
@@ -180,3 +180,205 @@ Make sure Docker Desktop is running, then:
 ```
 
 Confirm Postgres is reachable — you should see:
+```
+ ?column?
+----------
+        1
+(1 row)
+```
+
+</details>
+
+<details>
+<summary><b>3. Backend</b></summary>
+
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate        # macOS/Linux: source venv/bin/activate
+pip install -r requirements.txt
+
+alembic upgrade head
+cd ..
+python scripts/seed.py
+python scripts/setup_neo4j.py
+python scripts/embed_requirements.py
+
+cd backend
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Visit **http://localhost:8000/docs** to confirm all 33 endpoints are live.
+
+</details>
+
+<details>
+<summary><b>4. Frontend</b></summary>
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Visit **http://localhost:5173** and log in:
+
+```
+Email:    pm@scopesentinel.com
+Password: password123
+```
+
+</details>
+
+<details>
+<summary><b>5. (Optional) MCP server for Claude Desktop</b></summary>
+
+```bash
+cd mcp-server
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env
+```
+
+Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "scopesentinel": {
+      "command": "C:\\path\\to\\ScopeSentinel\\mcp-server\\venv\\Scripts\\python.exe",
+      "args": ["C:\\path\\to\\ScopeSentinel\\mcp-server\\server.py"]
+    }
+  }
+}
+```
+
+Restart Claude Desktop, then try: *"List my ScopeSentinel projects."*
+
+</details>
+
+<br/>
+
+## 📺 Screens Tour
+
+| Page | Purpose |
+|---|---|
+| **Dashboard** | KPIs, risk donut chart, coverage breakdown, recent changes |
+| **Upload Center** | Paste meeting/email text, run the full 5-agent pipeline live |
+| **Change Center** | Word-level diff viewer with risk badges |
+| **Impact Graph** | BFS-affected modules by depth, per requirement |
+| **Risk Center** | Risk distribution + filterable change list |
+| **GitHub Center** | Scan a repo, view file classification & recent commits |
+| **Coverage Center** | Per-requirement coverage %, found/missing details |
+| **PR Review Center** | Run the PR reviewer agent, preview the GitHub comment |
+| **Notifications** | Alert history across dashboard/email/Slack |
+| **Team Management** | Register users, view seeded accounts |
+| **Reports** | Printable/exportable project summary |
+| **Settings** | Configure the linked GitHub repo |
+
+<br/>
+
+## 🔌 API Overview
+
+33 REST endpoints across these groups — full interactive docs at `/docs` once the backend is running:
+
+```
+/auth/*               Registration, login, JWT issuance
+/projects/*            Project CRUD + config
+/requirements/*         Requirement CRUD + search
+/changes/*              Detected change history + diffs
+/agent/run              Trigger the full agent pipeline on pasted text
+/jira/sync              Pull real Jira issues and run them through the pipeline
+/email/sync             Pull unread inbox emails and run them through the pipeline
+/impact/analyze          BFS impact traversal
+/github/*                Repo scan, coverage, file classification
+/pr-review/run           PR compliance scoring
+/analytics/*              Dashboard aggregates
+```
+
+<br/>
+
+## 🧠 LLM Provider — OpenAI or local Ollama
+
+Agents 1, 4, 6, and 7 need an LLM. By default the app uses OpenAI's GPT-4o-mini, which costs money and is rate-limited. If you'd rather run fully offline with no cost and no rate limits, switch to a local [Ollama](https://ollama.com) model instead:
+
+```bash
+# 1. Install Ollama, then pull a model
+ollama pull llama3.1
+
+# 2. Start the Ollama server
+ollama serve
+
+# 3. In backend/.env, switch the provider
+LLM_PROVIDER=ollama
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.1
+```
+
+No code changes needed — every agent routes through `app/services/llm_service.py`, which picks the provider based on `LLM_PROVIDER`. Ollama responses are generally lower quality than GPT-4o-mini, so expect slightly noisier extraction/scoring — fine for a demo or development, but keep OpenAI for a polished placement demo if you can afford the small usage cost.
+
+<br/>
+
+## 🔗 Real Jira and Email ingestion
+
+Earlier versions of this README described ScopeSentinel as "watching meetings, emails, and Jira" — but only manual paste (`/agent/run`) was actually wired up. That's now backed by real integrations:
+
+**Jira** — `POST /jira/sync` pulls issues from a real Jira Cloud project (summary + description + recent comments) and runs each one through the same Agent 1 + Agent 2 pipeline as a manual paste.
+```env
+JIRA_BASE_URL=https://yourteam.atlassian.net
+JIRA_EMAIL=you@example.com
+JIRA_API_TOKEN=your-jira-api-token   # https://id.atlassian.com/manage-profile/security/api-tokens
+JIRA_PROJECT_KEY=SCOPE
+```
+Check credentials with `GET /jira/test-connection` first.
+
+**Email** — `POST /email/sync` reads unread messages from a real IMAP inbox (subject + body) and runs each one through the pipeline the same way.
+```env
+IMAP_HOST=imap.gmail.com
+IMAP_USER=you@example.com
+IMAP_PASSWORD=your-app-password   # Gmail: https://myaccount.google.com/apppasswords
+```
+Check credentials with `GET /email/test-connection` first.
+
+Both are optional — the app works fine without them, exactly like GitHub scanning is optional. Neither has a frontend button yet (still paste-only in the UI); trigger them via `/docs` or `curl` for now.
+
+<br/>
+
+## 🗺️ Roadmap
+
+- [ ] Slack app (native OAuth install, not just webhook)
+- [ ] Multi-repo project support
+- [ ] Fine-tuned risk-scoring model (replace heuristic + LLM hybrid)
+- [ ] GitLab / Bitbucket adapters alongside GitHub
+- [ ] Self-serve onboarding flow (no manual seed script)
+
+<br/>
+
+## 🤝 Contributing
+
+Contributions are welcome. Please open an issue to discuss what you'd like to change before submitting a large PR.
+
+```bash
+git checkout -b feature/your-feature
+git commit -m "Add: your feature"
+git push origin feature/your-feature
+```
+
+Then open a Pull Request.
+
+<br/>
+
+## 📄 License
+
+Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
+
+<br/>
+
+<div align="center">
+
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=6A11CB&height=150&section=footer" />
+
+Made with 🟣 and a lot of coffee — **ScopeSentinel**
+
+</div>
