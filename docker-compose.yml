@@ -1,0 +1,53 @@
+name: scopesentinel
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: scopesentinel_postgres
+    environment:
+      POSTGRES_USER: scopeuser
+      POSTGRES_PASSWORD: scopepass
+      POSTGRES_DB: scopesentinel
+    ports:
+      - "5432:5432"
+    volumes:
+      - scopesentinel_postgres_data_v2:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: scopesentinel_redis
+    ports:
+      - "6379:6379"
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: scopesentinel_qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - scopesentinel_qdrant_data_v2:/qdrant/storage
+
+  neo4j:
+    image: neo4j:5.20
+    container_name: scopesentinel_neo4j
+    environment:
+      NEO4J_AUTH: neo4j/scopepass123
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - scopesentinel_neo4j_data_v2:/data
+
+  mongodb:
+    image: mongo:7
+    container_name: scopesentinel_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - scopesentinel_mongo_data_v2:/data/db
+
+volumes:
+  scopesentinel_postgres_data_v2:
+  scopesentinel_qdrant_data_v2:
+  scopesentinel_neo4j_data_v2:
+  scopesentinel_mongo_data_v2:
