@@ -1,8 +1,12 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=0%3A6A11CB%2C100%3A9D50BB&height=220&section=header&text=ScopeSentinel&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI+Requirement+Guardian+%26+GitHub+Engineering+Intelligence+Platform&descAlignY=58&descSize=18" />
+🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
 
-<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
+<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=2500&pause=900&color=9D50BB&center=true&vCenter=true&width=700&height=60&lines=%F0%9F%94%AE+ScopeSentinel" alt="Typing SVG" /></a>
+
+<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
+
+🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
 
 <br/>
 
@@ -81,74 +85,27 @@ A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads
 
 ## 🏗️ Architecture
 
-> Rendered natively by GitHub — no external image service, no broken banners. Pan/zoom directly in the GitHub UI.
+<div align="center">
 
 ```mermaid
 flowchart LR
-    subgraph Client["🖥️ Frontend"]
-        FE["React 18 + Vite\nTailwind · 13 pages"]
-    end
+    A["🖥️ React Frontend"] <--> B["⚙️ FastAPI Backend"]
+    B <--> C["🤖 8 AI Agents\n(LangGraph)"]
+    B --> D["🗄️ Databases\nPostgres · Neo4j · Qdrant · Mongo · Redis"]
+    C --> E["🔗 GitHub / Jira / Email"]
 
-    subgraph API["⚙️ FastAPI Backend"]
-        BE["33 REST Endpoints\nJWT Auth · SQLAlchemy · Alembic"]
-    end
-
-    subgraph Agents["🤖 AI Agent Layer — LangGraph"]
-        A1["1 · Extractor"] --> A2["2 · Change Detector"]
-        A2 --> A3["3 · GitHub Intel"]
-        A3 --> A4["4 · Coverage Scorer"]
-        A4 --> A5["5 · Impact Analyzer"]
-        A5 --> A6["6 · Risk Scorer"]
-        A6 --> A7["7 · PR Reviewer"]
-        A7 --> A8["8 · Notifier"]
-    end
-
-    subgraph Data["🗄️ Data Layer"]
-        PG[("PostgreSQL\nCore data")]
-        NEO[("Neo4j\nImpact graph")]
-        QD[("Qdrant\nRequirement embeddings")]
-        MDB[("MongoDB\nAgent checkpoints")]
-        RDS[("Redis\nCache / queue")]
-    end
-
-    subgraph External["🔗 External"]
-        GH["GitHub\nrepos & PRs"]
-        JIRA["Jira Cloud"]
-        MAIL["IMAP Inbox"]
-        LLM["GPT-4o-mini\n/ Ollama"]
-        MCP["MCP Server\n→ Claude Desktop"]
-    end
-
-    FE <--> |HTTP/JSON| BE
-    BE <--> |trigger / stream| Agents
-    Agents <--> LLM
-    A3 <--> GH
-    A7 <--> GH
-    BE --> JIRA
-    BE --> MAIL
-
-    BE --> PG
-    A2 --> MDB
-    A4 --> QD
-    A5 --> NEO
-    BE --> RDS
-
-    BE -.exposes data.-> MCP
-
-    classDef client fill:#6A11CB,stroke:#B266FF,color:#fff
-    classDef api fill:#9D50BB,stroke:#B266FF,color:#fff
-    classDef agent fill:#3d1466,stroke:#B266FF,color:#fff
-    classDef data fill:#1c1c1c,stroke:#9D50BB,color:#fff
-    classDef ext fill:#2b2b2b,stroke:#6A11CB,color:#fff
-
-    class FE client
-    class BE api
-    class A1,A2,A3,A4,A5,A6,A7,A8 agent
-    class PG,NEO,QD,MDB,RDS data
-    class GH,JIRA,MAIL,LLM,MCP ext
+    style A fill:#6A11CB,stroke:#B266FF,color:#fff
+    style B fill:#9D50BB,stroke:#B266FF,color:#fff
+    style C fill:#3d1466,stroke:#B266FF,color:#fff
+    style D fill:#1c1c1c,stroke:#9D50BB,color:#fff
+    style E fill:#2b2b2b,stroke:#6A11CB,color:#fff
 ```
 
-A separate **MCP server** exposes ScopeSentinel's data as tools so **Claude Desktop** can query projects, requirements, and risk directly in conversation.
+**Frontend** talks to the **Backend**, which triggers the **AI Agents**, which read/write **Databases** and reach out to **GitHub, Jira & Email**. That's it. 🍥
+
+</div>
+
+A separate, lightweight **MCP server** also exposes this same data as tools so **Claude Desktop** can query projects, requirements, and risk directly in conversation.
 
 <br/>
 
@@ -156,16 +113,18 @@ A separate **MCP server** exposes ScopeSentinel's data as tools so **Claude Desk
 
 <div align="center">
 
-| # | Agent | Input | Output |
-|:-:|---|---|---|
-| 1️⃣ | **Extractor** | Raw meeting / email / Jira text | Structured requirement objects |
-| 2️⃣ | **Change Detector** | New vs. previous requirement | Additions, removals, word-level diff |
-| 3️⃣ | **GitHub Intel** | Linked repo | File classification, commit history |
-| 4️⃣ | **Coverage Scorer** | Requirement + repo embeddings | % implemented, found/missing details |
-| 5️⃣ | **Impact Analyzer** | Changed requirement | BFS-affected modules (Neo4j) |
-| 6️⃣ | **Risk Scorer** | Impact graph + change type | Blast-radius risk score |
-| 7️⃣ | **PR Reviewer** | Open pull request | Compliance score + comment draft |
-| 8️⃣ | **Notifier** | Any of the above | Dashboard / Email / Slack alert |
+🧩 **Extractor** → 🔍 **Change Detector** → 🐙 **GitHub Intel** → 📊 **Coverage Scorer** → 🕸️ **Impact Analyzer** → 🚦 **Risk Scorer** → ✅ **PR Reviewer** → 🔔 **Notifier**
+
+| # | Agent | What it does |
+|:-:|---|---|
+| 1️⃣ | Extractor | Turns raw meeting/email/Jira text into structured requirements |
+| 2️⃣ | Change Detector | Flags additions, removals, word-level diffs |
+| 3️⃣ | GitHub Intel | Classifies files, reads commit history |
+| 4️⃣ | Coverage Scorer | Measures how much of a requirement is actually implemented |
+| 5️⃣ | Impact Analyzer | BFS traversal across the Neo4j dependency graph |
+| 6️⃣ | Risk Scorer | Quantifies the blast radius of a change |
+| 7️⃣ | PR Reviewer | Scores pull requests against linked requirements |
+| 8️⃣ | Notifier | Routes alerts to dashboard / email / Slack |
 
 </div>
 
@@ -422,8 +381,10 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=0%3A9D50BB%2C100%3A6A11CB&height=140&section=footer" />
+🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
 
-Made with 🟣 and a lot of coffee — **ScopeSentinel**
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2200&pause=700&color=B266FF&center=true&vCenter=true&width=600&lines=Made+with+%F0%9F%9F%A3+and+a+lot+of+coffee;Thanks+for+stopping+by+%F0%9F%92%9C" alt="Typing SVG" />
+
+🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨ 🟣 🔮✨
 
 </div>
