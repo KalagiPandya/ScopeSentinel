@@ -6,7 +6,7 @@
     alt="ScopeSentinel"
   />
 
-  <br><br>
+  <br>
 
   <img
     src="./assets/typing.svg"
@@ -17,7 +17,7 @@
   <br><br>
 
 </div>
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
   <img src="https://img.shields.io/badge/license-MIT-9D50BB?style=for-the-badge" />
   <img src="https://img.shields.io/badge/python-3.11-6A11CB?style=for-the-badge&logo=python&logoColor=white" />
@@ -25,7 +25,7 @@
   <img src="https://img.shields.io/badge/PRs-welcome-B266FF?style=for-the-badge" />
 </p>
 
-<p>
+<p align ="center"> 
   <img src="https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi" />
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/LangGraph-6A11CB?style=flat-square" />
