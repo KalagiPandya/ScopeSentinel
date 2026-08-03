@@ -1,26 +1,31 @@
 <div align="center">
 
-<img src="./assets/header.svg" width="100%" alt="ScopeSentinel" />
+  <img
+    src="./assets/header.svg"
+    width="100%"
+    alt="ScopeSentinel"
+  />
 
-<br>
+  <br>
 
-<img src="./assets/typing.svg" width="680" alt="Real-time Requirement ↔ Code Drift" />
+  <img
+    src="./assets/typing.svg"
+    width="750"
+    alt="Real-time Requirement ↔ Code Drift"
+  />
 
-<br><br>
+  <br><br>
 
-<!-- Status Badges -->
-
-<p>
-  <img src="https://img.shields.io/badge/Status-Active-6A11CB?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/License-MIT-9D50BB?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Python-3.11-6A11CB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Node-18+-9D50BB?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/PRs-Welcome-B266FF?style=for-the-badge" />
+</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/license-MIT-9D50BB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/python-3.11-6A11CB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/node-18%2B-9D50BB?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/PRs-welcome-B266FF?style=for-the-badge" />
 </p>
 
-<!-- Tech Stack -->
-
-<p>
+<p align ="center"> 
   <img src="https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi" />
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/LangGraph-6A11CB?style=flat-square" />
@@ -32,6 +37,11 @@
   <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
 </p>
 
+### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
+
+[Features](#-features) • [Architecture](#-architecture) • [Agent Pipeline](#-the-8-agent-pipeline) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
+
+</div>
 <br>
 
 ## 🔮 Real-time AI Requirement Intelligence
