@@ -1,7 +1,7 @@
 <div align="center">
 
 <img width="100%" src="./assets/header.svg" alt="ScopeSentinel" />
-<img width="780" src="./assets/typing.svg" alt="8 Autonomous AI Agents • LangGraph Pipelines" />
+                        <img width="780" src="./assets/typing.svg" alt="8 Autonomous AI Agents • LangGraph Pipelines" />
 
 <br/>
 
@@ -39,7 +39,7 @@
 
 A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads unstructured requirement text, detects when it changes, traces the blast radius through a dependency graph, scores the risk, checks whether your codebase actually implements it, reviews pull requests for compliance, and notifies the right channel — all without a human babysitting the process.
 
-> Built as an end-to-end, production-shaped reference project: real auth, real diffing, real graph traversal, real vector search — not a toy CRUD demo.
+
 
 <br/>
 
@@ -378,6 +378,5 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <img width="100%" src="./assets/footer.svg" />
 
-Made with 🟣 and a lot of coffee — **ScopeSentinel**
 
 </div>
