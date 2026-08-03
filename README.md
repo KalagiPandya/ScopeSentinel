@@ -1,8 +1,8 @@
 <div align="center">
-
+<p align="center">
 <img width="100%" src="./assets/header.svg" alt="ScopeSentinel" />
                         <img width="780" src="./assets/typing.svg" alt="8 Autonomous AI Agents • LangGraph Pipelines" />
-
+</p>
 <br/>
 
 <p>
