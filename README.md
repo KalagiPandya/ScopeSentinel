@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=0:6A11CB,100:9D50BB&height=220&section=header&text=ScopeSentinel&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Requirement%20Guardian%20%26%20GitHub%20Engineering%20Intelligence%20Platform&descAlignY=58&descSize=18" />
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=0%3A6A11CB%2C100%3A9D50BB&height=220&section=header&text=ScopeSentinel&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI+Requirement+Guardian+%26+GitHub+Engineering+Intelligence+Platform&descAlignY=58&descSize=18" />
 
 <a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
 
@@ -28,7 +28,7 @@
 
 ### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
 
-[Features](#-features) • [Architecture](#-architecture) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
+[Features](#-features) • [Architecture](#-architecture) • [Agent Pipeline](#-the-8-agent-pipeline) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
 
 </div>
 
@@ -81,30 +81,93 @@ A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads
 
 ## 🏗️ Architecture
 
-```
-┌────────────────────┐        ┌──────────────────────────────┐        ┌─────────────────────┐
-│   React Frontend    │  HTTP  │        FastAPI Backend        │        │   AI Agent Layer     │
-│  Vite · Tailwind     │◄──────►│   33 REST Endpoints · JWT     │◄──────►│  LangGraph · 8 Agents │
-│  13 pages            │        │   Auth · SQLAlchemy · Alembic │        │  GPT-4o-mini          │
-└────────────────────┘        └───────────┬───────────────────┘        └──────────┬───────────┘
-                                           │                                       │
-                     ┌─────────────────────┼───────────────────────┬───────────────┘
-                     ▼                     ▼                       ▼
-             ┌───────────────┐     ┌───────────────┐       ┌───────────────┐
-             │  PostgreSQL   │     │     Neo4j      │       │    Qdrant     │
-             │  Core data    │     │  Impact graph  │       │  Requirement  │
-             │               │     │  (BFS traversal)│      │  embeddings   │
-             └───────────────┘     └───────────────┘       └───────────────┘
-                     │
-                     ▼
-             ┌───────────────┐     ┌───────────────┐
-             │    MongoDB    │     │     Redis      │
-             │  Agent state  │     │  Cache / queue │
-             │  checkpoints  │     │                │
-             └───────────────┘     └───────────────┘
+> Rendered natively by GitHub — no external image service, no broken banners. Pan/zoom directly in the GitHub UI.
+
+```mermaid
+flowchart LR
+    subgraph Client["🖥️ Frontend"]
+        FE["React 18 + Vite\nTailwind · 13 pages"]
+    end
+
+    subgraph API["⚙️ FastAPI Backend"]
+        BE["33 REST Endpoints\nJWT Auth · SQLAlchemy · Alembic"]
+    end
+
+    subgraph Agents["🤖 AI Agent Layer — LangGraph"]
+        A1["1 · Extractor"] --> A2["2 · Change Detector"]
+        A2 --> A3["3 · GitHub Intel"]
+        A3 --> A4["4 · Coverage Scorer"]
+        A4 --> A5["5 · Impact Analyzer"]
+        A5 --> A6["6 · Risk Scorer"]
+        A6 --> A7["7 · PR Reviewer"]
+        A7 --> A8["8 · Notifier"]
+    end
+
+    subgraph Data["🗄️ Data Layer"]
+        PG[("PostgreSQL\nCore data")]
+        NEO[("Neo4j\nImpact graph")]
+        QD[("Qdrant\nRequirement embeddings")]
+        MDB[("MongoDB\nAgent checkpoints")]
+        RDS[("Redis\nCache / queue")]
+    end
+
+    subgraph External["🔗 External"]
+        GH["GitHub\nrepos & PRs"]
+        JIRA["Jira Cloud"]
+        MAIL["IMAP Inbox"]
+        LLM["GPT-4o-mini\n/ Ollama"]
+        MCP["MCP Server\n→ Claude Desktop"]
+    end
+
+    FE <--> |HTTP/JSON| BE
+    BE <--> |trigger / stream| Agents
+    Agents <--> LLM
+    A3 <--> GH
+    A7 <--> GH
+    BE --> JIRA
+    BE --> MAIL
+
+    BE --> PG
+    A2 --> MDB
+    A4 --> QD
+    A5 --> NEO
+    BE --> RDS
+
+    BE -.exposes data.-> MCP
+
+    classDef client fill:#6A11CB,stroke:#B266FF,color:#fff
+    classDef api fill:#9D50BB,stroke:#B266FF,color:#fff
+    classDef agent fill:#3d1466,stroke:#B266FF,color:#fff
+    classDef data fill:#1c1c1c,stroke:#9D50BB,color:#fff
+    classDef ext fill:#2b2b2b,stroke:#6A11CB,color:#fff
+
+    class FE client
+    class BE api
+    class A1,A2,A3,A4,A5,A6,A7,A8 agent
+    class PG,NEO,QD,MDB,RDS data
+    class GH,JIRA,MAIL,LLM,MCP ext
 ```
 
 A separate **MCP server** exposes ScopeSentinel's data as tools so **Claude Desktop** can query projects, requirements, and risk directly in conversation.
+
+<br/>
+
+## 🔄 The 8-Agent Pipeline
+
+<div align="center">
+
+| # | Agent | Input | Output |
+|:-:|---|---|---|
+| 1️⃣ | **Extractor** | Raw meeting / email / Jira text | Structured requirement objects |
+| 2️⃣ | **Change Detector** | New vs. previous requirement | Additions, removals, word-level diff |
+| 3️⃣ | **GitHub Intel** | Linked repo | File classification, commit history |
+| 4️⃣ | **Coverage Scorer** | Requirement + repo embeddings | % implemented, found/missing details |
+| 5️⃣ | **Impact Analyzer** | Changed requirement | BFS-affected modules (Neo4j) |
+| 6️⃣ | **Risk Scorer** | Impact graph + change type | Blast-radius risk score |
+| 7️⃣ | **PR Reviewer** | Open pull request | Compliance score + comment draft |
+| 8️⃣ | **Notifier** | Any of the above | Dashboard / Email / Slack alert |
+
+</div>
 
 <br/>
 
@@ -124,7 +187,6 @@ A separate **MCP server** exposes ScopeSentinel's data as tools so **Claude Desk
 ## 🚀 Quick Start
 
 ### Prerequisites
-Make sure these are installed:
 
 | Tool | Link |
 |---|---|
@@ -133,7 +195,8 @@ Make sure these are installed:
 | Node.js 18+ | https://nodejs.org/ |
 | VS Code | https://code.visualstudio.com/ |
 
-### 1. Clone & configure
+<details>
+<summary><b>1. Clone & configure</b></summary>
 
 ```bash
 git clone https://github.com/<your-username>/ScopeSentinel.git
@@ -150,7 +213,10 @@ OPENAI_API_KEY=sk-your-real-key-here
 
 > ⚠️ `backend/.env` is git-ignored on purpose. Never commit real API keys — use `.env.example` as the template for anyone cloning this repo.
 
-### 2. Start the data layer
+</details>
+
+<details>
+<summary><b>2. Start the data layer</b></summary>
 
 Make sure Docker Desktop is running, then:
 
@@ -166,7 +232,10 @@ Confirm Postgres is reachable — you should see:
 (1 row)
 ```
 
-### 3. Backend
+</details>
+
+<details>
+<summary><b>3. Backend</b></summary>
 
 ```bash
 cd backend
@@ -186,7 +255,10 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 Visit **http://localhost:8000/docs** to confirm all 33 endpoints are live.
 
-### 4. Frontend
+</details>
+
+<details>
+<summary><b>4. Frontend</b></summary>
 
 ```bash
 cd frontend
@@ -201,7 +273,10 @@ Email:    pm@scopesentinel.com
 Password: password123
 ```
 
-### 5. (Optional) MCP server for Claude Desktop
+</details>
+
+<details>
+<summary><b>5. (Optional) MCP server for Claude Desktop</b></summary>
 
 ```bash
 cd mcp-server
@@ -225,6 +300,8 @@ Add to `claude_desktop_config.json`:
 ```
 
 Restart Claude Desktop, then try: *"List my ScopeSentinel projects."*
+
+</details>
 
 <br/>
 
@@ -252,27 +329,24 @@ Restart Claude Desktop, then try: *"List my ScopeSentinel projects."*
 33 REST endpoints across these groups — full interactive docs at `/docs` once the backend is running:
 
 ```
-/auth/*            Registration, login, JWT issuance
-/projects/*         Project CRUD + config
-/requirements/*      Requirement CRUD + search
-/changes/*           Detected change history + diffs
-/agent/run           Trigger the full agent pipeline on pasted text
-/jira/sync           Pull real Jira issues and run them through the pipeline
-/email/sync          Pull unread inbox emails and run them through the pipeline
-/impact/analyze       BFS impact traversal
-/github/*            Repo scan, coverage, file classification
-/pr-review/run        PR compliance scoring
-/analytics/*          Dashboard aggregates
+/auth/*               Registration, login, JWT issuance
+/projects/*            Project CRUD + config
+/requirements/*         Requirement CRUD + search
+/changes/*              Detected change history + diffs
+/agent/run              Trigger the full agent pipeline on pasted text
+/jira/sync              Pull real Jira issues and run them through the pipeline
+/email/sync             Pull unread inbox emails and run them through the pipeline
+/impact/analyze          BFS impact traversal
+/github/*                Repo scan, coverage, file classification
+/pr-review/run           PR compliance scoring
+/analytics/*              Dashboard aggregates
 ```
 
 <br/>
 
 ## 🧠 LLM Provider — OpenAI or local Ollama
 
-Agents 1, 4, 6, and 7 need an LLM. By default the app uses OpenAI's
-GPT-4o-mini, which costs money and is rate-limited. If you'd rather run
-fully offline with no cost and no rate limits, switch to a local
-[Ollama](https://ollama.com) model instead:
+Agents 1, 4, 6, and 7 need an LLM. By default the app uses OpenAI's GPT-4o-mini, which costs money and is rate-limited. If you'd rather run fully offline with no cost and no rate limits, switch to a local [Ollama](https://ollama.com) model instead:
 
 ```bash
 # 1. Install Ollama, then pull a model
@@ -287,24 +361,15 @@ OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama3.1
 ```
 
-No code changes needed — every agent routes through
-`app/services/llm_service.py`, which picks the provider based on
-`LLM_PROVIDER`. Ollama responses are generally lower quality than
-GPT-4o-mini, so expect slightly noisier extraction/scoring — fine for a
-demo or development, but keep OpenAI for a polished placement demo if
-you can afford the small usage cost.
+No code changes needed — every agent routes through `app/services/llm_service.py`, which picks the provider based on `LLM_PROVIDER`. Ollama responses are generally lower quality than GPT-4o-mini, so expect slightly noisier extraction/scoring — fine for a demo or development, but keep OpenAI for a polished placement demo if you can afford the small usage cost.
 
 <br/>
 
 ## 🔗 Real Jira and Email ingestion
 
-Earlier versions of this README described ScopeSentinel as "watching
-meetings, emails, and Jira" — but only manual paste (`/agent/run`) was
-actually wired up. That's now backed by real integrations:
+Earlier versions of this README described ScopeSentinel as "watching meetings, emails, and Jira" — but only manual paste (`/agent/run`) was actually wired up. That's now backed by real integrations:
 
-**Jira** — `POST /jira/sync` pulls issues from a real Jira Cloud project
-(summary + description + recent comments) and runs each one through the
-same Agent 1 + Agent 2 pipeline as a manual paste.
+**Jira** — `POST /jira/sync` pulls issues from a real Jira Cloud project (summary + description + recent comments) and runs each one through the same Agent 1 + Agent 2 pipeline as a manual paste.
 ```env
 JIRA_BASE_URL=https://yourteam.atlassian.net
 JIRA_EMAIL=you@example.com
@@ -313,8 +378,7 @@ JIRA_PROJECT_KEY=SCOPE
 ```
 Check credentials with `GET /jira/test-connection` first.
 
-**Email** — `POST /email/sync` reads unread messages from a real IMAP
-inbox (subject + body) and runs each one through the pipeline the same way.
+**Email** — `POST /email/sync` reads unread messages from a real IMAP inbox (subject + body) and runs each one through the pipeline the same way.
 ```env
 IMAP_HOST=imap.gmail.com
 IMAP_USER=you@example.com
@@ -322,9 +386,7 @@ IMAP_PASSWORD=your-app-password   # Gmail: https://myaccount.google.com/apppassw
 ```
 Check credentials with `GET /email/test-connection` first.
 
-Both are optional — the app works fine without them, exactly like
-GitHub scanning is optional. Neither has a frontend button yet (still
-paste-only in the UI); trigger them via `/docs` or `curl` for now.
+Both are optional — the app works fine without them, exactly like GitHub scanning is optional. Neither has a frontend button yet (still paste-only in the UI); trigger them via `/docs` or `curl` for now.
 
 <br/>
 
@@ -360,7 +422,7 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=0:9D50BB,100:6A11CB&height=140&section=footer" />
+<img width="100%" src="https://capsule-render.com/api?type=waving&color=0%3A9D50BB%2C100%3A6A11CB&height=140&section=footer" />
 
 Made with 🟣 and a lot of coffee — **ScopeSentinel**
 
