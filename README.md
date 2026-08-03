@@ -10,7 +10,7 @@
 
   <img
     src="./assets/typing.svg"
-    width="650"
+    width="750"
     alt="Real-time Requirement ↔ Code Drift"
   />
 
