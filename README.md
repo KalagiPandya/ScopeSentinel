@@ -1,8 +1,8 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=6A11CB&height=200&section=header&text=ScopeSentinel&fontSize=55&fontColor=ffffff&animation=twinkling&fontAlignY=40" />
+<img width="100%" src="./assets/header.svg" alt="ScopeSentinel" />
 
-<a href="https://github.com/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2500&pause=800&color=B266FF&center=true&vCenter=true&width=780&lines=8+Autonomous+AI+Agents+%E2%80%A2+LangGraph+Pipelines;Real-time+Requirement+%E2%86%94+Code+Drift+Detection;FastAPI+%2B+React+%2B+Qdrant+%2B+Neo4j+%2B+MongoDB;Built+for+Engineering+Teams+Who+Hate+Scope+Creep" alt="Typing SVG" /></a>
+<img width="780" src="./assets/typing.svg" alt="8 Autonomous AI Agents • LangGraph Pipelines" />
 
 <br/>
 
@@ -377,8 +377,6 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.com/api?type=waving&color=6A11CB&height=150&section=footer" />
-
-Made with 🟣 and a lot of coffee — **ScopeSentinel**
+<img width="100%" src="./assets/footer.svg" />
 
 </div>
