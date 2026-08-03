@@ -1,11 +1,22 @@
 <div align="center">
-  <br/>
-<p align="center">
-<img width="100%" src="./assets/header.svg" alt="ScopeSentinel" />
-                        <img width="780" src="./assets/typing.svg" alt="8 Autonomous AI Agents • LangGraph Pipelines" />
-</p>
-<br/>
 
+  <img
+    src="./assets/header.svg"
+    width="100%"
+    alt="ScopeSentinel"
+  />
+
+  <br><br>
+
+  <img
+    src="./assets/typing.svg"
+    width="650"
+    alt="Real-time Requirement ↔ Code Drift"
+  />
+
+  <br><br>
+
+</div>
 <p>
   <img src="https://img.shields.io/badge/status-active-6A11CB?style=for-the-badge" />
   <img src="https://img.shields.io/badge/license-MIT-9D50BB?style=for-the-badge" />
