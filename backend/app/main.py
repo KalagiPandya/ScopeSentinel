@@ -7,7 +7,10 @@ from app import models  # noqa: F401 — side-effect import
 from app.config import settings
 
 # Create all DB tables on startup (safe — skips existing tables)
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"[Startup Notice] Database initialization deferred: {e}")
 
 # ── App ────────────────────────────────────────────────────────────────────
 app = FastAPI(
