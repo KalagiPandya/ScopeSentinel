@@ -13,33 +13,54 @@ from app.services.auth_service import hash_password
 
 
 def auto_seed_db():
-    """Automatically seeds default demo accounts and a sample project if empty."""
+    """Automatically seeds or updates default demo accounts with valid bcrypt hashes."""
     try:
         Base.metadata.create_all(bind=engine)
         db = SessionLocal()
-        if not db.query(User).filter(User.email == "pm@scopesentinel.com").first():
-            print("[Auto-Seed] Seeding demo users and initial project...")
+
+        # Seed or refresh PM user
+        pm = db.query(User).filter(User.email == "pm@scopesentinel.com").first()
+        if pm:
+            pm.hashed_password = hash_password("password123")
+        else:
             pm = User(
                 name="Rahul Sharma",
                 email="pm@scopesentinel.com",
                 hashed_password=hash_password("password123"),
                 role=UserRole.pm,
             )
+            db.add(pm)
+
+        # Seed or refresh Developer user
+        dev = db.query(User).filter(User.email == "dev@scopesentinel.com").first()
+        if dev:
+            dev.hashed_password = hash_password("password123")
+        else:
             dev = User(
                 name="Priya Patel",
                 email="dev@scopesentinel.com",
                 hashed_password=hash_password("password123"),
                 role=UserRole.developer,
             )
+            db.add(dev)
+
+        # Seed or refresh QA user
+        qa = db.query(User).filter(User.email == "qa@scopesentinel.com").first()
+        if qa:
+            qa.hashed_password = hash_password("password123")
+        else:
             qa = User(
                 name="Amit Singh",
                 email="qa@scopesentinel.com",
                 hashed_password=hash_password("password123"),
                 role=UserRole.qa,
             )
-            db.add_all([pm, dev, qa])
-            db.commit()
+            db.add(qa)
 
+        db.commit()
+
+        project = db.query(Project).first()
+        if not project:
             project = Project(
                 name="College Management System",
                 description="Full-stack system for managing students, courses, and attendance",
@@ -78,8 +99,8 @@ def auto_seed_db():
                     )
                 )
             db.commit()
-            print("[Auto-Seed] Successfully created default users and requirements!")
         db.close()
+        print("[Auto-Seed] Demo users and initial project ready!")
     except Exception as e:
         print(f"[Auto-Seed Error] {e}")
 
