@@ -59,16 +59,19 @@ def _smart_heuristic_fallback(prompt: str) -> str:
         })
 
     # ── 3. PR Reviewer Prompt ───────────────────────────────────────────────
-    if "pull request" in prompt_lower or "compliance" in prompt_lower or "scope creep" in prompt_lower:
+    if "pull request" in prompt_lower or "compliance_score" in prompt_lower or "code reviewer" in prompt_lower:
         return json.dumps({
-            "scope_creep_detected": True,
-            "risk_score": 75,
-            "risk_level": "high",
-            "findings": [
-                "Pull request introduces functionality not mapped to approved sprint requirements.",
-                "Potential unmonitored feature expansion detected in endpoint handler."
+            "matched_requirements": [
+                "The system must support OTP verification during student login",
+                "Students can view their attendance percentage for each subject"
             ],
-            "recommendation": "Flag for PM approval before merging to maintain sprint scope boundaries."
+            "compliance_score": 88,
+            "missing_items": [
+                "Add unit tests for SMS OTP retry limits in backend/tests/test_auth.py",
+                "Verify rate-limiting headers on student login endpoints"
+            ],
+            "recommendation": "approve",
+            "summary": "Pull Request implements OTP verification and student attendance calculations directly aligned with approved sprint requirements."
         })
 
     # ── 4. Coverage Analyzer Prompt ─────────────────────────────────────────
