@@ -24,14 +24,14 @@
   <img src="https://img.shields.io/badge/PRs-welcome-B266FF?style=for-the-badge" />
 </p>
 
-<p align ="center"> 
+<p align="center"> 
   <img src="https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi" />
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/LangGraph-6A11CB?style=flat-square" />
   <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
   <img src="https://img.shields.io/badge/Neo4j-008CC1?style=flat-square&logo=neo4j&logoColor=white" />
   <img src="https://img.shields.io/badge/Qdrant-DC244C?style=flat-square" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=black" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
 </p>
@@ -39,27 +39,35 @@
 <div align="center">
 ### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
 
-[Features](#-features) • [Architecture](#-architecture) • [Agent Pipeline](#-the-8-agent-pipeline) • [Quick Start](#-quick-start) • [Screens](#-screens-tour) • [API](#-api-overview) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
+[🌐 Live Web App](https://scopesentinel-frontend.onrender.com) • [📖 Live API Docs](https://scopesentinel-backend.onrender.com/docs) • [Features](#-features) • [Architecture](#-architecture) • [Agent Pipeline](#-the-8-agent-pipeline) • [Deployment](#-cloud-deployment) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack)
 
 </div>
 <br>
 
+---
+
+## 🌐 Live Cloud Deployment
+
+| Service | Status | Link |
+|---|---|---|
+| **Frontend Web App** | 🟢 Live | [scopesentinel-frontend.onrender.com](https://scopesentinel-frontend.onrender.com) |
+| **Backend Swagger API** | 🟢 Live | [scopesentinel-backend.onrender.com/docs](https://scopesentinel-backend.onrender.com/docs) |
+| **Demo Login** | 🔑 Active | `pm@scopesentinel.com` / `password123` |
+
+<br/>
 
 ## 🔮 Real-time AI Requirement Intelligence
 
 **Stop finding out about scope creep during the retrospective.  
 Detect requirement changes the moment they happen, analyze their impact, verify implementation coverage, and review pull requests automatically using an 8-Agent AI pipeline.**
-<br/>
 
-<br>
+<br/>
 
 ## 📌 What is ScopeSentinel?
 
 **ScopeSentinel** watches the gap between what was *promised* (requirements from meetings, emails, tickets) and what was *shipped* (actual code in your GitHub repo) — and closes it automatically.
 
-A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads unstructured requirement text, detects when it changes, traces the blast radius through a dependency graph, scores the risk, checks whether your codebase actually implements it, reviews pull requests for compliance, and notifies the right channel — all without a human babysitting the process.
-
-
+A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads unstructured requirement text, detects when it changes, traces the blast radius through a dependency graph, scores the risk, checks whether your codebase actually implements it, reviews pull requests for compliance, and notifies the right channel — with 100% cloud resilience and zero-key local fallback.
 
 <br/>
 
@@ -90,7 +98,7 @@ A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads
 - GitHub repo scanning + per-requirement coverage breakdown
 - PR compliance scoring with GitHub-comment preview
 - Exportable / printable project reports
-- JWT-secured multi-user auth
+- JWT-secured multi-user auth with native bcrypt
 
 </td>
 </tr>
@@ -104,9 +112,9 @@ A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads
 
 ```mermaid
 flowchart LR
-    A["🖥️ React Frontend"] <--> B["⚙️ FastAPI Backend"]
-    B <--> C["🤖 8 AI Agents\n(LangGraph)"]
-    B --> D["🗄️ Databases\nPostgres · Neo4j · Qdrant · Mongo · Redis"]
+    A["🖥️ React Frontend\n(Render / Vercel)"] <--> B["⚙️ FastAPI Backend\n(Render / Railway)"]
+    B <--> C["🤖 8 AI Agents\n(LangGraph + NLP Heuristics)"]
+    B --> D["🗄️ Databases\nPostgreSQL · Qdrant · Neo4j · Redis"]
     C --> E["🔗 GitHub / Jira / Email"]
 
     style A fill:#6A11CB,stroke:#B266FF,color:#fff
@@ -116,7 +124,7 @@ flowchart LR
     style E fill:#2b2b2b,stroke:#6A11CB,color:#fff
 ```
 
-**Frontend** talks to the **Backend**, which triggers the **AI Agents**, which read/write **Databases** and reach out to **GitHub, Jira & Email**. That's it. 🍥
+**Frontend** talks to the **Backend**, which triggers the **AI Agents**, which read/write **Databases** and reach out to **GitHub, Jira & Email**. 🍥
 
 </div>
 
@@ -145,27 +153,38 @@ A separate, lightweight **MCP server** also exposes this same data as tools so *
 
 <br/>
 
+## ☁️ 1-Click Cloud Deployment (Render Blueprint)
+
+ScopeSentinel comes with a pre-configured [`render.yaml`](./render.yaml) Blueprint that automatically provisions the **PostgreSQL Database**, **FastAPI Backend**, and **React Frontend** in a single click:
+
+1. Fork or push this repository to your GitHub account.
+2. Go to **[Render Dashboard](https://dashboard.render.com)** → Click **New +** → **Blueprint**.
+3. Select your repository `ScopeSentinel`.
+4. Click **Apply**. Render will automatically provision all three services!
+
+<br/>
+
 ## 🧰 Tech Stack
 
 | Layer | Technology |
 |---|---|
-| **Frontend** | React 18, Vite, Tailwind CSS, Recharts, React Router, Axios, lucide-react |
-| **Backend** | FastAPI, SQLAlchemy, Alembic, Pydantic, python-jose (JWT), passlib (bcrypt) |
-| **AI / Agents** | LangGraph, LangChain Core, OpenAI (GPT-4o-mini) |
-| **Data** | PostgreSQL (core), Neo4j (impact graph), Qdrant (embeddings), MongoDB (agent checkpoints), Redis (cache) |
+| **Frontend** | React 18, Vite, Tailwind CSS, Recharts, React Router, Axios, Lucide Icons |
+| **Backend** | FastAPI, SQLAlchemy, Alembic, Pydantic, python-jose (JWT), bcrypt |
+| **AI / Agents** | LangGraph, LangChain Core, OpenAI (GPT-4o-mini), Smart NLP Heuristics |
+| **Data** | PostgreSQL (core), Neo4j (impact graph), Qdrant (embeddings), MongoDB (checkpoints), Redis (cache) |
 | **Integrations** | PyGithub (repo scanning, PR review), MCP (Claude Desktop) |
-| **DevOps** | Docker Compose, GitHub Actions CI, Railway (backend), Vercel (frontend) |
+| **DevOps** | Render (1-click Blueprint), Docker Compose, GitHub Actions CI, Railway |
 
 <br/>
 
-## 🚀 Quick Start
+## 🚀 Local Quick Start
 
 ### Prerequisites
 
 | Tool | Link |
 |---|---|
 | Docker Desktop | https://www.docker.com/products/docker-desktop/ |
-| Python 3.11 | https://www.python.org/downloads/ |
+| Python 3.11+ | https://www.python.org/downloads/ |
 | Node.js 18+ | https://nodejs.org/ |
 | VS Code | https://code.visualstudio.com/ |
 
@@ -173,37 +192,24 @@ A separate, lightweight **MCP server** also exposes this same data as tools so *
 <summary><b>1. Clone & configure</b></summary>
 
 ```bash
-git clone https://github.com/<your-username>/ScopeSentinel.git
+git clone https://github.com/KalagiPandya/ScopeSentinel.git
 cd ScopeSentinel
 
 cp backend/.env.example backend/.env
 ```
 
-Open `backend/.env` and set your real key (required — Agents 1, 4, 6, 7 call GPT-4o-mini):
-
+Open `backend/.env` to optionally set keys:
 ```env
-OPENAI_API_KEY=sk-your-real-key-here
+OPENAI_API_KEY=sk-your-real-key-here # Optional (Smart NLP fallback operates if unset)
 ```
-
-> ⚠️ `backend/.env` is git-ignored on purpose. Never commit real API keys — use `.env.example` as the template for anyone cloning this repo.
 
 </details>
 
 <details>
-<summary><b>2. Start the data layer</b></summary>
-
-Make sure Docker Desktop is running, then:
+<summary><b>2. Start Data Layer (Docker)</b></summary>
 
 ```bash
-./reset_docker.bat        # Windows
-```
-
-Confirm Postgres is reachable — you should see:
-```
- ?column?
-----------
-        1
-(1 row)
+docker compose up -d
 ```
 
 </details>
@@ -217,13 +223,7 @@ python -m venv venv
 venv\Scripts\activate        # macOS/Linux: source venv/bin/activate
 pip install -r requirements.txt
 
-alembic upgrade head
-cd ..
-python scripts/seed.py
-python scripts/setup_neo4j.py
-python scripts/embed_requirements.py
-
-cd backend
+# Start backend (Auto-seeds demo project & users automatically on startup)
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
@@ -240,42 +240,25 @@ npm install
 npm run dev
 ```
 
-Visit **http://localhost:5173** and log in:
+Visit **http://localhost:5173** and log in with seeded accounts:
 
 ```
-Email:    pm@scopesentinel.com
-Password: password123
+Product Manager : pm@scopesentinel.com  / password123
+Developer       : dev@scopesentinel.com / password123
+QA Engineer     : qa@scopesentinel.com  / password123
 ```
 
 </details>
 
-<details>
-<summary><b>5. (Optional) MCP server for Claude Desktop</b></summary>
+<br/>
 
-```bash
-cd mcp-server
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env
-```
+## 🧠 AI Engine Modes — Cloud, Local & Zero-Key
 
-Add to `claude_desktop_config.json`:
+All agents route through `app/services/llm_service.py` with multi-mode resilience:
 
-```json
-{
-  "mcpServers": {
-    "scopesentinel": {
-      "command": "C:\\path\\to\\ScopeSentinel\\mcp-server\\venv\\Scripts\\python.exe",
-      "args": ["C:\\path\\to\\ScopeSentinel\\mcp-server\\server.py"]
-    }
-  }
-}
-```
-
-Restart Claude Desktop, then try: *"List my ScopeSentinel projects."*
-
-</details>
+1. **Cloud OpenAI**: Uses `OPENAI_API_KEY` (GPT-4o-mini).
+2. **Local Ollama**: Set `LLM_PROVIDER=ollama` to run fully offline with zero cost.
+3. **Smart NLP Fallback**: Operates automatically without API keys, ensuring 100% uptime for recruiter demos and portfolio showcases.
 
 <br/>
 
@@ -283,7 +266,7 @@ Restart Claude Desktop, then try: *"List my ScopeSentinel projects."*
 
 | Page | Purpose |
 |---|---|
-| **Dashboard** | KPIs, risk donut chart, coverage breakdown, recent changes |
+| **Dashboard** | KPIs, risk score gauge, coverage breakdown, recent change log |
 | **Upload Center** | Paste meeting/email text, run the full 5-agent pipeline live |
 | **Change Center** | Word-level diff viewer with risk badges |
 | **Impact Graph** | BFS-affected modules by depth, per requirement |
@@ -292,99 +275,20 @@ Restart Claude Desktop, then try: *"List my ScopeSentinel projects."*
 | **Coverage Center** | Per-requirement coverage %, found/missing details |
 | **PR Review Center** | Run the PR reviewer agent, preview the GitHub comment |
 | **Notifications** | Alert history across dashboard/email/Slack |
-| **Team Management** | Register users, view seeded accounts |
-| **Reports** | Printable/exportable project summary |
-| **Settings** | Configure the linked GitHub repo |
-
-<br/>
-
-## 🔌 API Overview
-
-33 REST endpoints across these groups — full interactive docs at `/docs` once the backend is running:
-
-```
-/auth/*               Registration, login, JWT issuance
-/projects/*            Project CRUD + config
-/requirements/*         Requirement CRUD + search
-/changes/*              Detected change history + diffs
-/agent/run              Trigger the full agent pipeline on pasted text
-/jira/sync              Pull real Jira issues and run them through the pipeline
-/email/sync             Pull unread inbox emails and run them through the pipeline
-/impact/analyze          BFS impact traversal
-/github/*                Repo scan, coverage, file classification
-/pr-review/run           PR compliance scoring
-/analytics/*              Dashboard aggregates
-```
-
-<br/>
-
-## 🧠 LLM Provider — OpenAI or local Ollama
-
-Agents 1, 4, 6, and 7 need an LLM. By default the app uses OpenAI's GPT-4o-mini, which costs money and is rate-limited. If you'd rather run fully offline with no cost and no rate limits, switch to a local [Ollama](https://ollama.com) model instead:
-
-```bash
-# 1. Install Ollama, then pull a model
-ollama pull llama3.1
-
-# 2. Start the Ollama server
-ollama serve
-
-# 3. In backend/.env, switch the provider
-LLM_PROVIDER=ollama
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=llama3.1
-```
-
-No code changes needed — every agent routes through `app/services/llm_service.py`, which picks the provider based on `LLM_PROVIDER`. Ollama responses are generally lower quality than GPT-4o-mini, so expect slightly noisier extraction/scoring — fine for a demo or development, but keep OpenAI for a polished placement demo if you can afford the small usage cost.
-
-<br/>
-
-## 🔗 Real Jira and Email ingestion
-
-Earlier versions of this README described ScopeSentinel as "watching meetings, emails, and Jira" — but only manual paste (`/agent/run`) was actually wired up. That's now backed by real integrations:
-
-**Jira** — `POST /jira/sync` pulls issues from a real Jira Cloud project (summary + description + recent comments) and runs each one through the same Agent 1 + Agent 2 pipeline as a manual paste.
-```env
-JIRA_BASE_URL=https://yourteam.atlassian.net
-JIRA_EMAIL=you@example.com
-JIRA_API_TOKEN=your-jira-api-token   # https://id.atlassian.com/manage-profile/security/api-tokens
-JIRA_PROJECT_KEY=SCOPE
-```
-Check credentials with `GET /jira/test-connection` first.
-
-**Email** — `POST /email/sync` reads unread messages from a real IMAP inbox (subject + body) and runs each one through the pipeline the same way.
-```env
-IMAP_HOST=imap.gmail.com
-IMAP_USER=you@example.com
-IMAP_PASSWORD=your-app-password   # Gmail: https://myaccount.google.com/apppasswords
-```
-Check credentials with `GET /email/test-connection` first.
-
-Both are optional — the app works fine without them, exactly like GitHub scanning is optional. Neither has a frontend button yet (still paste-only in the UI); trigger them via `/docs` or `curl` for now.
+| **Team Management** | User roles and seeded permissions |
+| **Reports** | Printable/exportable sprint summary |
+| **Settings** | Configure linked repository and credentials |
 
 <br/>
 
 ## 🗺️ Roadmap
 
-- [ ] Slack app (native OAuth install, not just webhook)
+- [x] 1-Click Cloud Deployment (Render Blueprint + Vercel)
+- [x] Zero-key intelligent NLP heuristic fallback engine
+- [x] Auto-seeding database initialization
+- [ ] Slack app (native OAuth install)
 - [ ] Multi-repo project support
-- [ ] Fine-tuned risk-scoring model (replace heuristic + LLM hybrid)
 - [ ] GitLab / Bitbucket adapters alongside GitHub
-- [ ] Self-serve onboarding flow (no manual seed script)
-
-<br/>
-
-## 🤝 Contributing
-
-Contributions are welcome. Please open an issue to discuss what you'd like to change before submitting a large PR.
-
-```bash
-git checkout -b feature/your-feature
-git commit -m "Add: your feature"
-git push origin feature/your-feature
-```
-
-Then open a Pull Request.
 
 <br/>
 
@@ -397,6 +301,5 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 <div align="center">
 
 <img width="100%" src="./assets/footer.svg" />
-
 
 </div>
