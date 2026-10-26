@@ -6,7 +6,6 @@
     alt="ScopeSentinel"
   />
 
-
   <img
     src="./assets/typing.svg"
     width="750"
@@ -37,9 +36,9 @@
 </p>
 
 <div align="center">
-### 🔮 Stop finding out about scope creep in the retro. Find out the moment it happens.
+### 🔮 Automated Requirement Intelligence & PR Compliance Platform
 
-[🌐 Live Web App](https://scopesentinel-frontend.onrender.com) • [📖 Live API Docs](https://scopesentinel-backend.onrender.com/docs) • [Features](#-features) • [Architecture](#-architecture) • [Agent Pipeline](#-the-8-agent-pipeline) • [Deployment](#-cloud-deployment) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack)
+[🌐 Live Web App](https://scopesentinel-frontend.onrender.com) • [📖 Live API Docs](https://scopesentinel-backend.onrender.com/docs) • [Overview](#-overview) • [Key Features](#-key-features) • [Architecture](#-architecture) • [Agent Pipelines](#-agent-pipelines) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack)
 
 </div>
 <br>
@@ -51,71 +50,45 @@
 | Service | Status | Link |
 |---|---|---|
 | **Frontend Web App** | 🟢 Live | [scopesentinel-frontend.onrender.com](https://scopesentinel-frontend.onrender.com) |
-| **Backend Swagger API** | 🟢 Live | [scopesentinel-backend.onrender.com/docs](https://scopesentinel-backend.onrender.com/docs) |
+| **Backend API Docs (Swagger)** | 🟢 Live | [scopesentinel-backend.onrender.com/docs](https://scopesentinel-backend.onrender.com/docs) |
 | **Demo Login** | 🔑 Active | `pm@scopesentinel.com` / `password123` |
 
 <br/>
 
-## 🔮 Real-time AI Requirement Intelligence
+## 📌 Overview
 
-**Stop finding out about scope creep during the retrospective.  
-Detect requirement changes the moment they happen, analyze their impact, verify implementation coverage, and review pull requests automatically using an 8-Agent AI pipeline.**
+**ScopeSentinel** bridges the gap between what was *specified* in product conversations (meetings, emails, Jira tickets) and what is *shipped* in your GitHub repository.
 
-<br/>
+In real-world software development:
+1. Requirements evolve in conversations without documentation updates.
+2. Teams lack visibility into whether stated requirements are actually covered by codebase implementations.
+3. Pull requests get merged without verifying compliance against sprint specifications.
 
-## 📌 What is ScopeSentinel?
-
-**ScopeSentinel** watches the gap between what was *promised* (requirements from meetings, emails, tickets) and what was *shipped* (actual code in your GitHub repo) — and closes it automatically.
-
-A pipeline of **8 autonomous AI agents**, orchestrated with **LangGraph**, reads unstructured requirement text, detects when it changes, traces the blast radius through a dependency graph, scores the risk, checks whether your codebase actually implements it, reviews pull requests for compliance, and notifies the right channel — with 100% cloud resilience and zero-key local fallback.
+ScopeSentinel automates requirement extraction, flags drift with word-level diffs, traces ripple effects through a dependency graph, scores implementation coverage, and audits PRs automatically.
 
 <br/>
 
-## ✨ Features
+## ✨ Key Features
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🧠 AI Agent Pipeline
-- **Agent 1 — Extractor**: pulls structured requirements out of raw meeting/email text
-- **Agent 2 — Change Detector**: flags additions, removals, and word-level diffs
-- **Agent 3 — GitHub Intel**: classifies files and reads commit history
-- **Agent 4 — Coverage Scorer**: measures how much of a requirement is actually implemented
-- **Agent 5 — Impact Analyzer**: BFS traversal across a Neo4j dependency graph
-- **Agent 6 — Risk Scorer**: quantifies the blast radius of a change
-- **Agent 7 — PR Reviewer**: scores pull requests against linked requirements
-- **Agent 8 — Notifier**: routes alerts to dashboard / email / Slack
-
-</td>
-<td width="50%" valign="top">
-
-### 🖥️ Product Surface
-- 13-page React dashboard with a dark "mission control" theme
-- Live agent pipeline trigger from the Upload Center
-- Word-level diff viewer for every detected change
-- Interactive impact graph explorer
-- GitHub repo scanning + per-requirement coverage breakdown
-- PR compliance scoring with GitHub-comment preview
-- Exportable / printable project reports
-- JWT-secured multi-user auth with native bcrypt
-
-</td>
-</tr>
-</table>
+- **Requirement Extraction**: Ingest raw meeting notes, emails, and Jira tickets; turns unstructured text into structured requirement statements.
+- **Drift Detection & Word-Level Diff**: Compares incoming requirements against baselines via semantic similarity and dynamic programming Myers LCS word-level diffing.
+- **Graph Impact Analysis (Neo4j)**: Uses Breadth-First Search (BFS) to traverse module dependencies and identify downstream components impacted by a change.
+- **Risk Scoring Engine**: Quantifies the blast radius of changes (0–100) combining change type, similarity, and graph depth.
+- **Codebase Coverage Scorer**: Scans connected GitHub repositories and computes per-requirement implementation coverage percentages.
+- **PR Compliance Reviewer**: Evaluates pull requests against active requirements, flags missing implementations, and prepares review comments.
+- **Mission Control Dashboard**: 13-page dark-themed React UI with JWT role-based access (PM, Developer, QA), real-time alerts, and sprint reporting.
+- **Claude Desktop MCP Server**: Lightweight Model Context Protocol server exposing project requirements and risk queries to AI desktop clients.
 
 <br/>
 
 ## 🏗️ Architecture
 
-<div align="center">
-
 ```mermaid
 flowchart LR
-    A["🖥️ React Frontend\n(Render / Vercel)"] <--> B["⚙️ FastAPI Backend\n(Render / Railway)"]
-    B <--> C["🤖 8 AI Agents\n(LangGraph + NLP Heuristics)"]
-    B --> D["🗄️ Databases\nPostgreSQL · Qdrant · Neo4j · Redis"]
-    C --> E["🔗 GitHub / Jira / Email"]
+    A["🖥️ React Frontend\n(Vite + Tailwind CSS)"] <--> B["⚙️ FastAPI Backend\n(REST API + Auth)"]
+    B <--> C["🤖 LangGraph Pipelines\n(3 Workflows · 8 Specialized Nodes)"]
+    B <--> D["🗄️ Data Layer\nPostgreSQL · Neo4j · Qdrant"]
+    C <--> E["🔗 Integrations\nGitHub API · Jira Cloud · IMAP Email"]
 
     style A fill:#6A11CB,stroke:#B266FF,color:#fff
     style B fill:#9D50BB,stroke:#B266FF,color:#fff
@@ -124,43 +97,37 @@ flowchart LR
     style E fill:#2b2b2b,stroke:#6A11CB,color:#fff
 ```
 
-**Frontend** talks to the **Backend**, which triggers the **AI Agents**, which read/write **Databases** and reach out to **GitHub, Jira & Email**. 🍥
-
-</div>
-
-A separate, lightweight **MCP server** also exposes this same data as tools so **Claude Desktop** can query projects, requirements, and risk directly in conversation.
-
 <br/>
 
-## 🔄 The 8-Agent Pipeline
+## 🔄 Agent Pipelines
 
-<div align="center">
+The system organizes its 8 specialized agent nodes across 3 decoupled **LangGraph** workflows:
 
-🧩 **Extractor** → 🔍 **Change Detector** → 🐙 **GitHub Intel** → 📊 **Coverage Scorer** → 🕸️ **Impact Analyzer** → 🚦 **Risk Scorer** → ✅ **PR Reviewer** → 🔔 **Notifier**
+### 1. Requirement Drift & Impact Pipeline
+Triggered when new text or documents are submitted:
+```
+[Extractor] ──> [Change Detector] ──> [Impact Analyzer (Neo4j BFS)] ──> [Risk Scorer] ──> [Notifier]
+```
+- **Extractor**: Identifies requirement statements, types (functional, non-functional, constraint), and confidence scores.
+- **Change Detector**: Flags modifications vs. new additions using semantic similarity and word diffs.
+- **Impact Analyzer**: Runs BFS across the Neo4j graph to find affected modules up to depth 3.
+- **Risk Scorer**: Evaluates blast radius (0–100) using graph impact and change magnitude.
+- **Notifier**: Determines alert severity and routes updates to the dashboard, email, or Slack.
 
-| # | Agent | What it does |
-|:-:|---|---|
-| 1️⃣ | Extractor | Turns raw meeting/email/Jira text into structured requirements |
-| 2️⃣ | Change Detector | Flags additions, removals, word-level diffs |
-| 3️⃣ | GitHub Intel | Classifies files, reads commit history |
-| 4️⃣ | Coverage Scorer | Measures how much of a requirement is actually implemented |
-| 5️⃣ | Impact Analyzer | BFS traversal across the Neo4j dependency graph |
-| 6️⃣ | Risk Scorer | Quantifies the blast radius of a change |
-| 7️⃣ | PR Reviewer | Scores pull requests against linked requirements |
-| 8️⃣ | Notifier | Routes alerts to dashboard / email / Slack |
+### 2. GitHub Coverage Pipeline
+Triggered during repository scans:
+```
+[GitHub Repo Scanner] ──> [Coverage Scorer]
+```
+- **GitHub Scanner**: Connects via PyGithub and categorizes files (frontend, backend, database, test, config).
+- **Coverage Scorer**: Maps requirements against repository structure to estimate coverage percentage.
 
-</div>
-
-<br/>
-
-## ☁️ 1-Click Cloud Deployment (Render Blueprint)
-
-ScopeSentinel comes with a pre-configured [`render.yaml`](./render.yaml) Blueprint that automatically provisions the **PostgreSQL Database**, **FastAPI Backend**, and **React Frontend** in a single click:
-
-1. Fork or push this repository to your GitHub account.
-2. Go to **[Render Dashboard](https://dashboard.render.com)** → Click **New +** → **Blueprint**.
-3. Select your repository `ScopeSentinel`.
-4. Click **Apply**. Render will automatically provision all three services!
+### 3. PR Compliance Pipeline
+Triggered manually or via GitHub webhook:
+```
+[PR Reviewer Node]
+```
+- **PR Reviewer**: Audits PR file diffs against active sprint requirements, highlights missing tests/components, and generates audit feedback.
 
 <br/>
 
@@ -169,27 +136,23 @@ ScopeSentinel comes with a pre-configured [`render.yaml`](./render.yaml) Bluepri
 | Layer | Technology |
 |---|---|
 | **Frontend** | React 18, Vite, Tailwind CSS, Recharts, React Router, Axios, Lucide Icons |
-| **Backend** | FastAPI, SQLAlchemy, Alembic, Pydantic, python-jose (JWT), bcrypt |
-| **AI / Agents** | LangGraph, LangChain Core, OpenAI (GPT-4o-mini), Smart NLP Heuristics |
-| **Data** | PostgreSQL (core), Neo4j (impact graph), Qdrant (embeddings), MongoDB (checkpoints), Redis (cache) |
-| **Integrations** | PyGithub (repo scanning, PR review), MCP (Claude Desktop) |
-| **DevOps** | Render (1-click Blueprint), Docker Compose, GitHub Actions CI, Railway |
+| **Backend** | FastAPI, SQLAlchemy, Pydantic, python-jose (JWT), bcrypt |
+| **Workflows & AI** | LangGraph, LangChain Core, OpenAI (GPT-4o-mini) / Ollama with NLP heuristic fallback |
+| **Databases** | PostgreSQL (relational core), Neo4j (module dependency graph), Qdrant (vector similarity) |
+| **Integrations** | PyGithub (repository scanning & PR review), Jira Cloud REST API v3, IMAP Email, MCP |
+| **DevOps** | Docker Compose, Render (1-click Blueprint), Railway |
 
 <br/>
 
 ## 🚀 Local Quick Start
 
 ### Prerequisites
-
-| Tool | Link |
-|---|---|
-| Docker Desktop | https://www.docker.com/products/docker-desktop/ |
-| Python 3.11+ | https://www.python.org/downloads/ |
-| Node.js 18+ | https://nodejs.org/ |
-| VS Code | https://code.visualstudio.com/ |
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Python 3.11+](https://www.python.org/downloads/)
+- [Node.js 18+](https://nodejs.org/)
 
 <details>
-<summary><b>1. Clone & configure</b></summary>
+<summary><b>1. Clone & Configure Environment</b></summary>
 
 ```bash
 git clone https://github.com/KalagiPandya/ScopeSentinel.git
@@ -198,24 +161,23 @@ cd ScopeSentinel
 cp backend/.env.example backend/.env
 ```
 
-Open `backend/.env` to optionally set keys:
-```env
-OPENAI_API_KEY=sk-your-real-key-here # Optional (Smart NLP fallback operates if unset)
-```
+*(Optional)* Add your `OPENAI_API_KEY` in `backend/.env`. If omitted, the built-in heuristic fallback engine runs automatically for offline demos.
 
 </details>
 
 <details>
-<summary><b>2. Start Data Layer (Docker)</b></summary>
+<summary><b>2. Start Data Services (Docker)</b></summary>
 
 ```bash
 docker compose up -d
 ```
 
+Starts PostgreSQL, Neo4j, and Qdrant containers.
+
 </details>
 
 <details>
-<summary><b>3. Backend</b></summary>
+<summary><b>3. Start Backend</b></summary>
 
 ```bash
 cd backend
@@ -223,16 +185,16 @@ python -m venv venv
 venv\Scripts\activate        # macOS/Linux: source venv/bin/activate
 pip install -r requirements.txt
 
-# Start backend (Auto-seeds demo project & users automatically on startup)
+# Starts server and automatically seeds demo project and users
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Visit **http://localhost:8000/docs** to confirm all 33 endpoints are live.
+Visit **http://localhost:8000/docs** to explore the interactive Swagger API documentation.
 
 </details>
 
 <details>
-<summary><b>4. Frontend</b></summary>
+<summary><b>4. Start Frontend</b></summary>
 
 ```bash
 cd frontend
@@ -240,7 +202,7 @@ npm install
 npm run dev
 ```
 
-Visit **http://localhost:5173** and log in with seeded accounts:
+Visit **http://localhost:5173** and log in with any seeded demo account:
 
 ```
 Product Manager : pm@scopesentinel.com  / password123
@@ -252,43 +214,22 @@ QA Engineer     : qa@scopesentinel.com  / password123
 
 <br/>
 
-## 🧠 AI Engine Modes — Cloud, Local & Zero-Key
-
-All agents route through `app/services/llm_service.py` with multi-mode resilience:
-
-1. **Cloud OpenAI**: Uses `OPENAI_API_KEY` (GPT-4o-mini).
-2. **Local Ollama**: Set `LLM_PROVIDER=ollama` to run fully offline with zero cost.
-3. **Smart NLP Fallback**: Operates automatically without API keys, ensuring 100% uptime for recruiter demos and portfolio showcases.
-
-<br/>
-
 ## 📺 Screens Tour
 
-| Page | Purpose |
+| Page | Description |
 |---|---|
-| **Dashboard** | KPIs, risk score gauge, coverage breakdown, recent change log |
-| **Upload Center** | Paste meeting/email text, run the full 5-agent pipeline live |
-| **Change Center** | Word-level diff viewer with risk badges |
-| **Impact Graph** | BFS-affected modules by depth, per requirement |
-| **Risk Center** | Risk distribution + filterable change list |
-| **GitHub Center** | Scan a repo, view file classification & recent commits |
-| **Coverage Center** | Per-requirement coverage %, found/missing details |
-| **PR Review Center** | Run the PR reviewer agent, preview the GitHub comment |
-| **Notifications** | Alert history across dashboard/email/Slack |
-| **Team Management** | User roles and seeded permissions |
-| **Reports** | Printable/exportable sprint summary |
-| **Settings** | Configure linked repository and credentials |
-
-<br/>
-
-## 🗺️ Roadmap
-
-- [x] 1-Click Cloud Deployment (Render Blueprint + Vercel)
-- [x] Zero-key intelligent NLP heuristic fallback engine
-- [x] Auto-seeding database initialization
-- [ ] Slack app (native OAuth install)
-- [ ] Multi-repo project support
-- [ ] GitLab / Bitbucket adapters alongside GitHub
+| **Dashboard** | High-level metrics, risk score gauge, requirement coverage breakdown |
+| **Upload Center** | Ingest meeting notes, documents, or Jira text to run the change pipeline |
+| **Change Center** | Interactive word-level diff viewer highlighting added and removed terms |
+| **Impact Graph** | Visualizes affected modules by depth from Neo4j dependency traversal |
+| **Risk Center** | Risk distribution analytics and filterable change register |
+| **GitHub Center** | Repository file classification and recent commit history |
+| **Coverage Center** | Requirement-to-code coverage percentage with found/missing details |
+| **PR Review Center** | Automated PR audit preview and GitHub review comment generation |
+| **Notifications** | Alert history across dashboard, email, and Slack channels |
+| **Team Management** | Role-based permission controls (PM, Developer, QA) |
+| **Reports** | Exportable sprint compliance and requirement status reports |
+| **Settings** | Configuration for linked repository and third-party credentials |
 
 <br/>
 
